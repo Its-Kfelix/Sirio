@@ -29,8 +29,8 @@ namespace Order.Controllers
 
                 var response = orderService.GetAllOrders();
 
-                if (response.Rows.Count > 0)
-                {
+                
+               if (response.Rows.Count > 0) {
                     JArray children = new JArray();
                     int i = 0;
                     foreach (DataRow row in response.Rows)
@@ -43,8 +43,9 @@ namespace Order.Controllers
                         children.Add(child);
                         i++;
                     }
-                    response_json.Add("STATUS", response.Rows[i]["Status"].ToString());
+                    //response_json.Add("STATUS", response.Rows[i]["Status"].ToString());
                     //response_json.Add("RESPONSEMESSAGE", "Success!");
+                    response_json.Add("STATUS", "Success");
                     response_json.Add("DATA", children);
                 }
                 else
@@ -89,7 +90,7 @@ namespace Order.Controllers
 
                     JToken b = JToken.FromObject(response.Rows[0]);
                     //response_json.Add("RESPONSECODE", "00");
-                    response_json.Add("Status", response.Rows[0]["Status"].ToString());
+                    //response_json.Add("Status", response.Rows[0]["Status"].ToString());
                     response_json.Add("DATA", child);
                     response_json.Add(response.Rows[0].ToString());
                 }

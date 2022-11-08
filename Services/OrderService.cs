@@ -110,7 +110,7 @@ namespace Order.Services
                         using (SqlDataAdapter val3 = new SqlDataAdapter(val2))
                         {
                             val2.CommandType = CommandType.StoredProcedure;
-                            val2.Parameters.AddWithValue("@module", "order");
+                            
                             val3.Fill(datatable);
                         }
                     }
